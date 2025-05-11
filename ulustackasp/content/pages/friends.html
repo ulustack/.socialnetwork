@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Arkadaşlar</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #98e5f0, #ffffff);
+            transition: background-color 0.3s, color 0.3s;
+            text-align: center;
+            padding-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-mode {
+            background-color: #2a2a2a;
+            color: #fefefe;
+        }
+
+        h2 {
+            color: #007BFF;
+            font-size: 36px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .top-left-buttons {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .top-left-buttons button {
+            padding: 12px 20px;
+            margin: 5px 0;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            width: 200px;
+            text-align: left;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .top-left-buttons button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .friend-list-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 350px;
+            margin-right: 40px;
+        }
+
+        .friend-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .friend-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .friend-card img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .friend-card h3 {
+            margin: 0;
+            color: #007BFF;
+            font-size: 18px;
+        }
+
+        .friend-card p {
+            color: #555;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .friend-card button {
+            background-color: #dc3545; /* Kırmızı renk */
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .friend-card button:hover {
+            background-color: #c82333; /* Daha koyu kırmızı */
+        }
+
+        .add-friend-btn {
+            background-color: #28a745;
+            margin-top: 20px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .add-friend-btn:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .friend-suggestion-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            width: 350px;
+            margin: 10px 0;
+            position: absolute;
+            right: 40px; 
+            padding: 20px;
+        }
+
+        .suggested-friend {
+            background-color: #f3f3f3;
+            padding: 20px;
+            border-radius: 12px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .suggested-friend:hover {
+            transform: scale(1.05);
+        }
+
+        .suggested-friend .photo-box {
+            background-color: #f8c8d7;
+            padding: 12px;
+            border-radius: 50%;
+        }
+
+        .suggested-friend .name-box {
+            background-color: #fcb5b5;
+            padding: 12px;
+            border-radius: 8px;
+            color: red;
+            font-size: 16px;
+        }
+
+        .suggested-friend button {
+            background-color: #28a745; /* Yeşil renk */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .suggested-friend button:hover {
+            background-color: #218838; /* Daha koyu yeşil */
+        }
+
+        .shuffle-btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: auto;
+            width: 120px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .shuffle-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Tasarım */
+        @media (max-width: 600px) {
+            .friend-list-container {
+                width: 90%;
+            }
+
+            .friend-suggestion-container {
+                width: 90%;
+                position: relative;
+                right: auto;
+            }
+
+            .top-left-buttons {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-left-buttons">
+        <button onclick="window.location.href='mainpage'"> 🏠 Ana Sayfa</button>
+        <button onclick="window.location.href='profile'">👤 Profilim</button>
+        <button onclick="window.location.href='notifications'">🔔 Bildirimler <span id="notification-count">(0)</span></button>
+        <button onclick="window.location.href='messages'"> ✉️ Mesajlar<span id="notification-count">(0)</span></button>
+        <button onclick="window.location.href='settings'"> ⚙️ Ayarlar</button>
+        <button onclick="window.location.href='auth'"> 🚪 Çıkış yap</button>
+    </div>
+
+    <div class="friend-list-container">
+        <h2>Arkadaş Listesi</h2>
+
+        <div class="friend-card">
+            <img src="https://via.placeholder.com/60" alt="Ad soyad">
+            <div>
+                <h3>Ad Soyad</h3>
+                <p>mail</p>
+            </div>
+            <button>Arkadaştan Çıkar</button>
+        </div>
+
+        <div class="friend-card">
+            <img src="https://via.placeholder.com/60" alt="Ad soyad">
+            <div>
+                <h3>Ad Soyad</h3>
+                <p>mail</p>
+            </div>
+            <button>Arkadaştan Çıkar</button>
+        </div>
+
+        <div class="friend-card">
+            <img src="https://via.placeholder.com/60" alt="Ad soyad">
+            <div>
+                <h3>Ad Soyad</h3>
+                <p>mail</p>
+            </div>
+            <button>Arkadaştan Çıkar</button>
+        </div>
+    </div>
+
+    <div class="friend-suggestion-container">
+        <h2>Arkadaşlık Önerileri</h2>
+
+        <div class="suggested-friend">
+            <div class="photo-box">
+                <img src="https://via.placeholder.com/60" alt="fotoğraf">
+            </div>
+            <div class="name-box">Ad Soyad</div>
+            <button>Arkadaş Ekle</button>
+        </div>
+
+        <div class="suggested-friend">
+            <div class="photo-box">
+                <img src="https://via.placeholder.com/60" alt="fotoğraf">
+            </div>
+            <div class="name-box">Ad Soyad</div>
+            <button>Arkadaş Ekle</button>
+        </div>
+
+        <div class="suggested-friend">
+            <div class="photo-box">
+                <img src="https://via.placeholder.com/60" alt="fotoğraf">
+            </div>
+            <div class="name-box">Ad Soyad</div>
+            <button>Arkadaş Ekle</button>
+        </div>
+
+        <button class="shuffle-btn">Daha Fazla</button>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+{
+  "Users": {
+    "0eaa2f3c-f9ee-4b53-8edd-b8332eb2657d": {
+      "Name": "Emre Kartal",
+      "Mail": "emrekrtl@proton.me",
+      "PasswordSalt": "SAHsNGN15jinUlnI",
+      "PasswordHash": "$2a$13$3oB8TRqeOErDuYuJBUQLLe/KeW6GOTbvXFuCm7qVOuiWmC2g6Kz7W",
+      "Timestamp": "05/05/2025 15:11:12",
+      "UniqueID": "0eaa2f3c-f9ee-4b53-8edd-b8332eb2657d",
+      "Biography": "ben emre kartal!",
+      "PictureURL": "google.com"
+    },
+    "38a3f74e-4f3c-4ae7-8cb3-b5a90b5b1e10": {
+      "Name": "john doe",
+      "Mail": "john@gmail.com",
+      "PasswordSalt": "uNsZeB4XlApAVmKt",
+      "PasswordHash": "$2a$13$bCedI7hCyWOKQ16OthNdyuFCfzulERBFZCmwXAzzOAI4EeyW2vftq",
+      "Timestamp": "05/07/2025 16:39:08",
+      "UniqueID": "38a3f74e-4f3c-4ae7-8cb3-b5a90b5b1e10",
+      "Biography": "",
+      "PictureURL": ""
+    },
+    "7ef9b15c-ec82-4090-a916-51c6395b90ea": {
+      "Name": "walter h. white",
+      "Mail": "walterwhite@gmail.com",
+      "PasswordSalt": "cDnRmWQ4qnrVFo4v",
+      "PasswordHash": "D99C07665BCFC49D23D4D2077AAADBAF277CB7E7AAD53825B4E2D16820FFCFBD",
+      "Timestamp": "05/07/2025 16:47:23",
+      "UniqueID": "7ef9b15c-ec82-4090-a916-51c6395b90ea",
+      "Biography": "crystal",
+      "PictureURL": "google.com"
+    }
+  }
+}

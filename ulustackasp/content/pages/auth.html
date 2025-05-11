@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Giriş ve Kayıt</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #007BFF, #00bcd4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container h2 {
+            margin-top: 0;
+            color: #007BFF;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: 500;
+            color: #555;
+        }
+
+        input {
+            padding: 12px;
+            font-size: 14px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+            outline: none;
+        }
+
+        button[type="submit"] {
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        
+        .dark-mode {
+            background-color: #1a1a1a;
+            color: #fefefe;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .form-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Giriş Yap</h2>
+            <form onsubmit="return false">
+                <label for="login-email">E-posta:</label>
+                <input type="email" id="login-email" placeholder="E-posta adresiniz" required>
+
+                <label for="login-password">Şifre:</label>
+                <input type="password" id="login-password" placeholder="Şifreniz" required>
+
+                <button type="submit" onclick="sendLogin()">Giriş Yap</button>
+            </form>
+        </div>
+
+        <div class="form-container">
+            <h2>Kayıt Ol</h2>
+            <form onsubmit="return false">
+                <label for="register-name">Ad Soyad:</label>
+                <input type="text" id="register-name" placeholder="Adınız Soyadınız" required>
+
+                <label for="register-email">E-posta:</label>
+                <input type="email" id="register-email" placeholder="E-posta adresiniz" required>
+
+                <label for="register-password">Şifre:</label>
+                <input type="password" id="register-password" placeholder="Şifreniz" required>
+
+                <button type="submit">Kayıt Ol</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+    <script type="text/javascript" src="/scripts/js/signalr.min.js"></script>
+    <script type="text/javascript" src="/scripts/js/auth.js"></script>
+    
+</body>
+
+</html>
