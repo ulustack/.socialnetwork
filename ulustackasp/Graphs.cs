@@ -134,7 +134,7 @@ public class GraphNode<T>
     }
 
     // Örnek Kullanım
-    /*
+    
     public class Program
     {
         public static void Main(string[] args)
@@ -164,7 +164,7 @@ public class GraphNode<T>
             graph.Recommend("A");
         }
     }
-    */
+    
 }
 
 
