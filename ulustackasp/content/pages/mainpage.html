@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ana Sayfa</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #98e5f0, #ffffff);
+            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(to right, #1a1a1a, #2c2c2c);
+            color: #fefefe;
+        }
+
+        h2 {
+            text-align: center;
+            color: #007BFF;
+            font-size: 30px;
+            margin: 20px 0;
+        }
+
+        form {
+            max-width: 700px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: rgb(255, 255, 255);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            transition: box-shadow 0.3s;
+        }
+
+        form:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        form input,
+        form textarea {
+            padding: 12px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            transition: border-color 0.3s;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        form button {
+            padding: 12px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .post-container {
+            max-width: 700px;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .post {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            gap: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .post:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        }
+
+        .post img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #007BFF;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .content h3 {
+            margin: 0;
+            color: #007BFF;
+            font-size: 18px;
+        }
+
+        .content p {
+            margin: 8px 0;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .content span {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .actions {
+            margin-top: 10px;
+        }
+
+        .actions button {
+            margin-right: 10px;
+            padding: 6px 12px;
+            font-size: 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .like-btn {
+            background-color: #e91e63;
+            color: white;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .top-left-buttons {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .top-left-buttons button {
+            padding: 12px 20px;
+            margin: 5px 0;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            width: 200px;
+            text-align: left;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .top-left-buttons button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        @media (max-width: 600px) {
+            .top-left-buttons {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                transform: none;
+            }
+
+            .post-container {
+                margin: 20px;
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2> Paylaşım Yap!</h2>
+    <form id="postForm">
+        <textarea class="input-field" id="content" placeholder="Ne paylaşmak istersiniz?" rows="4"></textarea><br>
+        <input type="file" id="image" accept="image/*"><br>
+        <button type="submit" class="button">Paylaş</button>
+    </form>
+    <h2> 📢 Paylaşımlar</h2>
+
+    <div class="post-container" id="post-container"></div>
+
+    <div class="top-left-buttons">
+        <button onclick="window.location.href='mainpage'"> 🏠 Ana Sayfa</button>
+        <button onclick="window.location.href='profile'">👤 Profilim</button>
+        <button onclick="window.location.href='notifications'">🔔 Bildirimler <span id="notification-count">(0)</span></button>
+        <button onclick="window.location.href='messages'"> ✉️ Mesajlar<span id="notification-count">(0)</span></button>
+        <button onclick="window.location.href='settings'"> ⚙️ Ayarlar</button>
+        <button onclick="window.location.href='auth'"> 🚪 Çıkış yap</button>
+    </div>
+    <script type="text/javascript" src="/scripts/js/signalr.min.js"></script>
+
+    <script type="text/javascript" src="/scripts/js/mainpage.js">
+    </script>
+</body>
+
+</html>

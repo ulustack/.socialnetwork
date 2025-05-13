@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ana Sayfa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            background-color: #e9f5ff;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        .back-btn {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+        
+        .dark-mode {
+            background-color: #1a1a1a !important;
+            color: #fefefe !important;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="back-btn" onclick="window.location.href='postlar.html'">Geri Dön</button>
+    <h2>📬 Bildirimler</h2>
+
+    <input type="text" id="bildirimInput" placeholder="Bildirim gir">
+    <button onclick="bildirimEkle()">Bildirim Ekle</button>
+    <button onclick="bildirimGoster()">Sonraki Bildirimi Göster</button>
+
+    <script>
+    </script>
+</body>
+
+</html>

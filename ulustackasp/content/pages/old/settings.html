@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ayarlar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fffaf0;
+            text-align: center;
+            padding-top: 80px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        h1 {
+            color: #444;
+        }
+        
+        .top-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .top-buttons button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .top-buttons button:hover {
+            background-color: #0056b3;
+        }
+        
+        .setting-option {
+            margin: 20px auto;
+            width: 300px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fefefe;
+        }
+        
+        .setting-option button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .setting-option button:hover {
+            background-color: #0056b3;
+        }
+        
+        .back-btn {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+        
+        .dark-mode {
+            background-color: #1a1a1a;
+            color: #fefefe;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-buttons">
+        <button onclick="window.location.href='profil.html'">👤 Profilim</button>
+        <button onclick="window.location.href='bildirimler.html'">🔔 Bildirimler</button>
+        <button onclick="window.location.href='mesajlar.html'">Mesajlar</button>
+        <button onclick="window.location.href='index.html'">🚪 Çıkış</button>
+    </div>
+
+    <h1>Ayarlar</h1>
+
+    <div class="setting-option">
+        <strong>Şifre Değiştir</strong><br>
+        <input type="password" id="new-password" placeholder="Yeni şifre" style="margin-top: 10px; padding: 6px; width: 80%; border-radius: 6px;">
+        <button onclick="changePassword()">Güncelle</button>
+    </div>
+
+    <div class="setting-option">
+        <strong>Tema: Açık / Koyu</strong><br>
+        <button onclick="toggleTheme()">🌗 Tema Değiştir</button>
+    </div>
+
+    <button class="back-btn" onclick="window.location.href='postlar.html'">⬅️ Geri Dön</button>
+
+    <script>
+    </script>
+</body>
+
+</html>
